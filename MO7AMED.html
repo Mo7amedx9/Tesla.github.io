@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T E S L A</title>
+    <style>
+        @font-face {
+            font-family: 'Quinoa Round';
+            src: url('https://firebasestorage.googleapis.com/v0/b/teslax-66c1a.appspot.com/o/police1.ttf?alt=media&token=1c15781c-2fc9-44fb-bdc7-2a55289b63f8') format('truetype');
+        }
+
+        body {
+            font-family: 'Quinoa Round', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e1e1e, #4b4b4b);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.5);
+        }
+
+        #title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2em;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            animation: titleAnimation 3s ease-in-out infinite;
+        }
+
+        @keyframes titleAnimation {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 0, 0, 1);
+            }
+        }
+
+        #container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            text-align: center;
+        }
+
+        #result {
+            font-size: 3em;
+            width: 300px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ff4500;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);
+            animation: borderAnimation 5s linear infinite;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        @keyframes borderAnimation {
+            0% { border-color: #ff4500; }
+            10% { border-color: #ff6347; }
+            20% { border-color: #ff1493; }
+            30% { border-color: #ff4500; }
+            40% { border-color: #7fff00; }
+            50% { border-color: #00fa9a; }
+            60% { border-color: #1e90ff; }
+            70% { border-color: #ff4500; }
+            80% { border-color: #da70d6; }
+            90% { border-color: #ffd700; }
+            100% { border-color: #ff4500; }
+        }
+
+        #result:hover {
+            transform: scale(1.05);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        #message {
+            display: none;
+            font-size: 1.5em;
+            color: #ff4500;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
+        }
+
+        .button-container {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .button-container p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            cursor: pointer;
+        }
+
+        .button-container button {
+            background-color: #000;
+            color: #fff;
+            border: 3px solid;
+            padding: 8px 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(255, 69, 0, 0.6);
+            animation: buttonBorderAnimation 5s linear infinite, buttonBackgroundAnimation 5s ease-in-out infinite;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        @keyframes buttonBorderAnimation {
+            0% { border-color: #ff4500; }
+            10% { border-color: #ff6347; }
+            20% { border-color: #ff1493; }
+            30% { border-color: #ff4500; }
+            40% { border-color: #7fff00; }
+            50% { border-color: #00fa9a; }
+            60% { border-color: #1e90ff; }
+            70% { border-color: #ff4500; }
+            80% { border-color: #da70d6; }
+            90% { border-color: #ffd700; }
+            100% { border-color: #ff4500; }
+        }
+
+        @keyframes buttonBackgroundAnimation {
+            0%, 100% { background-color: #000; }
+            50% { background-color: #333; }
+        }
+
+        .button-container button:hover {
+            transform: scale(1.1);
+        }
+
+        .button-container button:active {
+            animation: buttonPress 0.2s;
+        }
+
+        @keyframes buttonPress {
+            0% {
+                transform: scale(1.1);
+            }
+            50% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <video class="background-video" autoplay muted loop>
+        <source src="https://firebasestorage.googleapis.com/v0/b/teslax-66c1a.appspot.com/o/4_5844786097070015897.mp4?alt=media&token=8a571a39-3c99-4d4f-b20a-020f29aa082b" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h1 id="title">T E S L A 🔥</h1>
+    <div id="container">
+        <p id="message">انتظر...</p>
+        <div id="result">0.00</div>
+    </div>
+    <div class="button-container">
+        <p onclick="location.href='https://t.me/ZeEshul0'">https://t.me/ZeEshul0</p>
+        <button onclick="startPrediction()">S T A R T </button>
+    </div>
+    <script>
+        function getRandomNumber() {
+            return (Math.random() * (2.40 - 1) + 1).toFixed(2);
+        }
+
+        function updateNumber(current, target) {
+            document.getElementById('result').textContent = current.toFixed(2);
+            if (current < target) {
+                setTimeout(() => updateNumber(current + 0.01, target), 50);
+            }
+        }
+
+        function startPrediction() {
+            document.getElementById('message').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('message').style.display = 'none';
+                const targetNumber = parseFloat(getRandomNumber());
+                updateNumber(1.0, targetNumber);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
